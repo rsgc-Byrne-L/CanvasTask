@@ -41,13 +41,15 @@ class Sketch : NSObject {
                                           rule: "F-F++F-F",
                                           generations: 5)
         
+        
         // Visualize this as a small snowflake
         smallKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
                                                          length: 90,
                                                          reduction: 3,
                                                          x: 120,
                                                          y: 175,
-                                                         direction: 0)
+                                                         direction: 0,
+                                                         colours: ["1": Colour(hue: 240, saturation: 80, brightness: 90), "2": Colour(hue: 0, saturation: 80, brightness: 90), "3": Colour(hue: 120, saturation: 80, brightness: 90)])
         
         // Visualize this as a small snowflake
         mediumKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
@@ -55,12 +57,13 @@ class Sketch : NSObject {
                                                           reduction: 3,
                                                           x: 250,
                                                           y: 300,
-                                                          direction: 0)
+                                                          direction: 0,
+                                                          colours: ["1": Colour(hue: 240, saturation: 80, brightness: 90), "2": Colour(hue: 0, saturation: 80, brightness: 90), "3": Colour(hue: 120, saturation: 80, brightness: 90)])
         
         
         // Set up a Koch Island
         kochIsland = LindenmayerSystem(angle: 90,
-                                       axiom: "F-F-F-F",
+                                       axiom: "1F-2F-3F-F",
                                        rule: "F-F+F+FF-F-F+F",
                                        generations: 5)
         
@@ -70,7 +73,8 @@ class Sketch : NSObject {
                                                        reduction: 4,
                                                        x: 100,
                                                        y: 400,
-                                                       direction: 10)
+                                                       direction: 10,
+                                                       colours: ["1": Colour(hue: 240, saturation: 80, brightness: 90), "2": Colour(hue: 0, saturation: 80, brightness: 90), "3": Colour(hue: 120, saturation: 80, brightness: 90)])
         
         // Set up a Koch Swirl
         kochSwirl = LindenmayerSystem(angle: 90,
@@ -84,7 +88,8 @@ class Sketch : NSObject {
                                                       reduction: 3,
                                                       x: 250,
                                                       y: 400,
-                                                      direction: 0)
+                                                      direction: 0,
+                                                      colours: ["1": Colour(hue: 240, saturation: 80, brightness: 90), "2": Colour(hue: 0, saturation: 80, brightness: 90), "3": Colour(hue: 120, saturation: 80, brightness: 90)])
 
         // Set up another Koch construction
         kochConstruction = LindenmayerSystem(angle: 90,
@@ -98,7 +103,8 @@ class Sketch : NSObject {
                                                          reduction: 4,
                                                          x: 250,
                                                          y: 350,
-                                                         direction: 0)
+                                                         direction: 0,
+                                                         colours: ["1": Colour(hue: 240, saturation: 80, brightness: 90), "2": Colour(hue: 0, saturation: 80, brightness: 90), "3": Colour(hue: 120, saturation: 80, brightness: 90)])
         
         // The frame rate can be adjusted; the default is 60 fps
         canvas.framesPerSecond = 60
@@ -109,7 +115,7 @@ class Sketch : NSObject {
     func draw() {
         
         // Render the current system
-        canvas.renderAnimated(system: mediumConstruction, generation: 2)
+        canvas.renderAnimated(system: largeKochIsland, generation: 2)
         
     }
     
