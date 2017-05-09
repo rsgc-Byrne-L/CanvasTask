@@ -10,11 +10,11 @@ public class LindenmayerSystem {
     var direction : Int                 // initial direction turtle faces (degrees)
     var angle : Degrees                 // rotation amount for turtle (degrees)
     var axiom : String
-    var rule : String
+    var rules : [Character : String]
     var n : Int                         // number of times the production rule is applied
     var word : String                   // the word that will be rendered
     
-    public init(length : Int, reduction : Int, x : Int, y : Int, direction : Int, angle : Degrees, axiom : String, rule : String, generations : Int) {
+    public init(length : Int, reduction : Int, x : Int, y : Int, direction : Int, angle : Degrees, axiom : String, rule : String, generations : Int, rules : [Character : String]) {
         
         // Initialize stored properties
         initialLength = length
@@ -25,7 +25,7 @@ public class LindenmayerSystem {
         self.direction = direction
         self.angle = angle
         self.axiom = axiom
-        self.rule = rule
+        self.rules = rules
         self.n = generations
         self.word = axiom   // Word begins as the axiom
         
@@ -35,6 +35,8 @@ public class LindenmayerSystem {
     }
     
     func applyRules() {
+        // Create a new word
+        var newWord = ""
         
         // See if word needs to be re-written
         if n > 0 {
@@ -42,33 +44,31 @@ public class LindenmayerSystem {
             // Apply the production rule "n" times
             for _ in 1...n {
                 
-                // Create a new word
-                var newWord = ""
-                
                 // Inspect each character of existing word
                 for character in word.characters {
                     
-                    if character == "F" {
-                        
-                        // apply production rule, replace "old" F with new string
-                        newWord.append(rule)
-                        
-                    } else {
-                        
+                    for (key, rule) in rules {
+                        if character == key {
+                            
+                            // apply production rule, replace "old" F with new string
+                            newWord.append(rule)
+                            
+                        }
+                    }
+                    if character == "+" || character == "-" {
                         // just copy what's in the existing word to the new word
                         newWord.append(character)
-                        
                     }
                     
                 }
-                
-                // Replace the existing word with the new word
-                word = newWord
-                
             }
+            
+            // Replace the existing word with the new word
+            word.append(newWord)
             
         }
         
     }
     
 }
+
