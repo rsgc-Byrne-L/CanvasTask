@@ -29,43 +29,44 @@ public class EnhancedCanvas : Canvas {
 
     }
     
-    public func renderAnimated(system : VisualizedLindenmayerSystem, generation : Int) {
-        
-        // Verify that generation that was asked to be rendered actually exists
-        var generation = generation
-        if generation > system.n {
-            generation = system.n
-        }
-        
-        // Things to do at start of L-system animation...
-        if system.animationPosition == 0 {
+    public func renderAnimated(systems : [VisualizedLindenmayerSystem], generations : [Int]) {
+        var i = 0
+        for system in systems {
+            // Verify that generation that was asked to be rendered actually exists
+            var generation = generations[i] 
+            if generation > system.n {
+                generation = system.n
+            }
             
-            // Change the line length
-            system.currentLength = Float( Double(system.initialLength) / pow(Double(system.reduction), Double(generation)) )
-
-            // Move turtle to starting point
-            self.translate(byX: system.x, byY: system.y) // Move turtle to starting point
-        }
-        
-        // Don't run past end of the word
-        if system.animationPosition < system.word[generation].characters.count {
+            // Things to do at start of L-system animation...
+            if system.animationPosition == 0 {
+                
+                // Change the line length
+                system.currentLength = Float( Double(system.initialLength) / pow(Double(system.reduction), Double(generation)) )
+                
+                // Move turtle to starting point
+                //self.translate(byX: system.x, byY: system.y) // Move turtle to starting point
+            }
             
-            // Get the index of the next character
-            let index = system.word[generation].index(system.word[generation].startIndex, offsetBy: system.animationPosition)
-
-            // Get the next character
-            let c = system.word[generation][index]
-            
-            // Render the character
-            interpret(character: c, forThis: system)
-
-            // Move to next character in word
-            system.animationPosition += 1
-
+            // Don't run past end of the word
+            if system.animationPosition < system.word[generation].characters.count {
+                
+                // Get the index of the next character
+                let index = system.word[generation].index(system.word[generation].startIndex, offsetBy: system.animationPosition)
+                
+                // Get the next character
+                let c = system.word[generation][index]
+                
+                // Render the character
+                interpret(character: c, forThis: system)
+                
+                // Move to next character in word
+                system.animationPosition += 1
+                
+            }
+            i += 1
         }
-        
     }
-    
     func interpret(character : Character, forThis system : VisualizedLindenmayerSystem) {
         
         // Interpret each character of the word
@@ -79,10 +80,10 @@ public class EnhancedCanvas : Canvas {
             self.translate(byX: system.currentLength, byY: 0)
         case "+":
             // Turn left
-            self.rotate(by: system.angle)
+            system.currentAngle += system.angle
         case "-":
             // Turn right
-            self.rotate(by: system.angle * -1)
+            system.currentAngle -= system.angle
         case "1":
             self.lineColor = Color(hue: (system.colours["1"]?.hue)!, saturation: (system.colours["1"]?.saturation)!, brightness: (system.colours["1"]?.brightness)!, alpha: 100)
         case "2":

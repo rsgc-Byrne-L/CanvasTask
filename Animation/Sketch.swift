@@ -115,7 +115,7 @@ class Sketch : NSObject {
     func draw() {
         
         // Render the current system
-        canvas.renderAnimated(system: mediumKochSnowflake, generation: 2)
+        canvas.renderAnimated(systems: [mediumKochSnowflake], generations: [2])
         
     }
     

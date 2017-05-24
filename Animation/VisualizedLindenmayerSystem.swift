@@ -16,6 +16,7 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
     var y : Int                             // initial vertical position of turtle
     var direction : Int                     // initial direction turtle faces (degrees)
     var currentLength : Float               // current line segment length
+    var currentAngle : Degrees              // current angle degree
     var animationPosition = 0               // tracks current character being interpreted when system is animated
     var colours : [String : Colour]
 
@@ -34,6 +35,7 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
         self.y = y
         self.direction = direction
         self.currentLength = self.initialLength
+        self.currentAngle = Degrees(direction)
         self.colours = colours
         
         super.init(with: providedSystem)

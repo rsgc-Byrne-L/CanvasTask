@@ -36,6 +36,7 @@ public class LindenmayerSystem {
         self.n = system.n
         self.word.append(axiom)   // The first word is the axiom
         
+        // Looks through rules(rule) for "/", which marks the start of stochastic rule
         for rule in rules {
             if rule.value[rule.value.index(rule.value.startIndex, offsetBy: 1)] == "/" {
                 stochastic = true
