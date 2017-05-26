@@ -9,6 +9,7 @@ public class LindenmayerSystem {
     // is rendered with an animation, step by step
     var rules : [Character : [String]]
     var stochastic = false
+    var branch = 0 // if branch = 0 (none), if branch = 1 (branch has started), if branch = 2 (branch has ended)
         
     public init(angle : Degrees,
                 axiom : String,

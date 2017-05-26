@@ -8,6 +8,8 @@
 
 import Foundation
 
+// stores hue, saturation, and brightness
+
 public struct Colour {
     
     var hue : Float

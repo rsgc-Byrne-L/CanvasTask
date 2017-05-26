@@ -30,7 +30,7 @@ public class EnhancedCanvas : Canvas {
     }
     
     public func renderAnimated(systems : [VisualizedLindenmayerSystem], generations : [Int]) {
-        var i = 0
+        var i = 0 // variable for counting
         for system in systems {
             // Verify that generation that was asked to be rendered actually exists
             var generation = generations[i]
@@ -77,10 +77,12 @@ public class EnhancedCanvas : Canvas {
         case "F":
             // Go forward while drawing a line
             self.drawLine(fromX: system.x, fromY: system.y, toX: newX, toY: newY)
+            // instead of translating the line, we store the x and y values
             system.x = newX
             system.y = newY
         case "f":
             // Go forward without drawing a line
+            // instead of translating the line, we store the x and y values
             system.x = newX
             system.y = newY
         case "+":
@@ -89,6 +91,15 @@ public class EnhancedCanvas : Canvas {
         case "-":
             // Turn right
             system.currentAngle -= system.angle
+        case "/":
+            // Stochastic
+            system.stochastic = true
+        case "[":
+            // Start branch
+            system.branch = 1
+        case "]":
+            system.branch = 2
+            // End branch
         case "1":
             self.lineColor = Color(hue: (system.colours["1"]?.hue)!, saturation: (system.colours["1"]?.saturation)!, brightness: (system.colours["1"]?.brightness)!, alpha: 100)
         case "2":

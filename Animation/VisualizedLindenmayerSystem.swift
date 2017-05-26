@@ -18,7 +18,7 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
     var currentLength : Float               // current line segment length
     var animationPosition = 0               // tracks current character being interpreted when system is animated
     var currentAngle : Degrees              // tracks current angle depending on the current direction
-    var colours : [String : Colour]
+    var colours : [String : Colour]         // declares variable for colours
     
     public init(with providedSystem: LindenmayerSystem,
                 length: Float,
