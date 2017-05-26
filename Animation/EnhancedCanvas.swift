@@ -26,14 +26,14 @@ public class EnhancedCanvas : Canvas {
             interpret(character: c, forThis: system)
         }
         self.restoreState()
-
+        
     }
     
     public func renderAnimated(systems : [VisualizedLindenmayerSystem], generations : [Int]) {
         var i = 0
         for system in systems {
             // Verify that generation that was asked to be rendered actually exists
-            var generation = generations[i] 
+            var generation = generations[i]
             if generation > system.n {
                 generation = system.n
             }
@@ -67,34 +67,30 @@ public class EnhancedCanvas : Canvas {
             i += 1
         }
     }
+    
     func interpret(character : Character, forThis system : VisualizedLindenmayerSystem) {
-        
         // Interpret each character of the word
+        let newX = Float(CGFloat(system.x)+cos(CGFloat(M_PI)*system.currentAngle/180)*CGFloat(system.currentLength))
+        let newY = Float(CGFloat(system.y)+sin(CGFloat(M_PI)*system.currentAngle/180)*CGFloat(system.currentLength))
+        // MARK: Switch
         switch character {
         case "F":
             // Go forward while drawing a line
-            self.drawLine(fromX: 0, fromY: 0, toX: system.currentLength, toY: 0)
-            self.translate(byX: system.currentLength, byY: 0)
+            self.drawLine(fromX: system.x, fromY: system.y, toX: newX, toY: newY)
+            system.x = newX
+            system.y = newY
         case "f":
             // Go forward without drawing a line
-            self.translate(byX: system.currentLength, byY: 0)
+            system.x = newX
+            system.y = newY
         case "+":
             // Turn left
             system.currentAngle += system.angle
         case "-":
             // Turn right
             system.currentAngle -= system.angle
-        case "1":
-            self.lineColor = Color(hue: (system.colours["1"]?.hue)!, saturation: (system.colours["1"]?.saturation)!, brightness: (system.colours["1"]?.brightness)!, alpha: 100)
-        case "2":
-            self.lineColor = Color(hue: (system.colours["2"]?.hue)!, saturation: (system.colours["2"]?.saturation)!, brightness: (system.colours["2"]?.brightness)!, alpha: 100)
-        case "3":
-            self.lineColor = Color(hue: (system.colours["3"]?.hue)!, saturation: (system.colours["3"]?.saturation)!, brightness: (system.colours["3"]?.brightness)!, alpha: 100)
         default:
-            // Do nothing for any another character in the word
             break
         }
-
     }
-    
 }

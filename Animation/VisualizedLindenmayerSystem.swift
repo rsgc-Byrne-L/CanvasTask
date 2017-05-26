@@ -12,21 +12,19 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
     
     var initialLength : Float               // initial line segment length
     var reduction : Float                   // reduction factor
-    var x : Int                             // initial horizontal position of turtle
-    var y : Int                             // initial vertical position of turtle
+    var x : Float                           // initial horizontal position of turtle
+    var y : Float                           // initial vertical position of turtle
     var direction : Int                     // initial direction turtle faces (degrees)
     var currentLength : Float               // current line segment length
-    var currentAngle : Degrees              // current angle degree
     var animationPosition = 0               // tracks current character being interpreted when system is animated
-    var colours : [String : Colour]
-
+    var currentAngle : Degrees              // tracks current angle depending on the current direction
+    
     public init(with providedSystem: LindenmayerSystem,
                 length: Float,
                 reduction: Float,
-                x: Int,
-                y: Int,
-                direction: Int,
-                colours : [String : Colour] ) {
+                x: Float,
+                y: Float,
+                direction: Int) {
         
         // Initialize stored properties
         self.initialLength = length
@@ -36,11 +34,8 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
         self.direction = direction
         self.currentLength = self.initialLength
         self.currentAngle = Degrees(direction)
-        self.colours = colours
-        
         super.init(with: providedSystem)
-        
     }
     
-
+    
 }
