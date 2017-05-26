@@ -9,19 +9,7 @@ public class LindenmayerSystem {
     // is rendered with an animation, step by step
     var rules : [Character : [String]]
     var stochastic = false
-    
-    public struct Colour {
-        var hue : Float
-        var saturation : Float
-        var brightness : Float
         
-        public init(h : Float, s : Float, b : Float) {
-            hue = h
-            saturation = s
-            brightness = b
-        }
-    }
-    
     public init(angle : Degrees,
                 axiom : String,
                 generations : Int,
