@@ -31,7 +31,7 @@ class Sketch : NSObject {
         kochSnowflake = LindenmayerSystem(angle: 15,
                                           axiom: "+F-F+F-F+F-F",
                                           generations: 3,
-                                          rules: ["F" : ["F[+F]F[-F]"]])
+                                          rules: ["F" : ["1F[+F]2F[-F]"]])
         
         // Visualize this as a small snowflake
         smallKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
