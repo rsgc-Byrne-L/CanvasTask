@@ -36,6 +36,7 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
     var currentAngle : Degrees              // tracks current angle depending on the current direction
     var colours : [String : Colour]         // declares variable for colours
     var systemStack = [StateOfSystem]()     // stack for the system, can take out and put in from the top
+    var currentColour : Colour              // current colour
     
     public init(with providedSystem: LindenmayerSystem,
                 length: Float,
@@ -54,6 +55,7 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
         self.currentLength = self.initialLength
         self.currentAngle = Degrees(direction)
         self.colours = colours
+        self.currentColour = Colour(hue: 0, saturation: 0, brightness: 0)
         super.init(with: providedSystem)
     }
     

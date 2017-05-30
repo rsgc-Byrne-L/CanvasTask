@@ -10,6 +10,7 @@
 		0C8F44781EBA54AA00251C81 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8F44771EBA54AA00251C81 /* Colour.swift */; };
 		0CBFE5631ECA216400FD0B25 /* LineWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBFE5611ECA216400FD0B25 /* LineWriter.swift */; };
 		0CBFE5641ECA216400FD0B25 /* LineReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBFE5621ECA216400FD0B25 /* LineReader.swift */; };
+		0CD410F61EDD9B610058D42E /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD410F51EDD9B610058D42E /* Gradient.swift */; };
 		81064A0A1C130A10007ED524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81064A091C130A10007ED524 /* AppDelegate.swift */; };
 		81064A0C1C130A10007ED524 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81064A0B1C130A10007ED524 /* ViewController.swift */; };
 		81064A0E1C130A10007ED524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81064A0D1C130A10007ED524 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		0C8F44771EBA54AA00251C81 /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
 		0CBFE5611ECA216400FD0B25 /* LineWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LineWriter.swift; path = "../../../../../../Downloads/FileReadingWritingExample-master/FileReadingWritingExample/LineWriter.swift"; sourceTree = "<group>"; };
 		0CBFE5621ECA216400FD0B25 /* LineReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LineReader.swift; path = "../../../../../../Downloads/FileReadingWritingExample-master/FileReadingWritingExample/LineReader.swift"; sourceTree = "<group>"; };
+		0CD410F51EDD9B610058D42E /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		81064A061C130A10007ED524 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81064A091C130A10007ED524 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81064A0B1C130A10007ED524 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				81064A121C130A10007ED524 /* Info.plist */,
 				0CBFE5611ECA216400FD0B25 /* LineWriter.swift */,
 				0CBFE5621ECA216400FD0B25 /* LineReader.swift */,
+				0CD410F51EDD9B610058D42E /* Gradient.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				81678C541EBA34D3006FB3B9 /* VisualizedLindenmayerSystem.swift in Sources */,
 				81F1943C1EABB91100832CA6 /* EnhancedCanvas.swift in Sources */,
 				81064A1C1C132DA2007ED524 /* Sketch.swift in Sources */,
+				0CD410F61EDD9B610058D42E /* Gradient.swift in Sources */,
 				0CBFE5631ECA216400FD0B25 /* LineWriter.swift in Sources */,
 				81064A0A1C130A10007ED524 /* AppDelegate.swift in Sources */,
 			);

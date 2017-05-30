@@ -69,6 +69,7 @@ public class EnhancedCanvas : Canvas {
     }
     
     func interpret(character : Character, forThis system : VisualizedLindenmayerSystem) {
+        self.lineColor = Color(hue: (system.currentColour.hue), saturation: (system.currentColour.saturation), brightness: (system.currentColour.brightness), alpha: 100)
         // Interpret each character of the word
         let newX = Float(CGFloat(system.x)+cos(CGFloat(M_PI)*system.currentAngle/180)*CGFloat(system.currentLength))
         let newY = Float(CGFloat(system.y)+sin(CGFloat(M_PI)*system.currentAngle/180)*CGFloat(system.currentLength))
@@ -107,10 +108,13 @@ public class EnhancedCanvas : Canvas {
             // End branch
         case "1":
             self.lineColor = Color(hue: (system.colours["1"]?.hue)!, saturation: (system.colours["1"]?.saturation)!, brightness: (system.colours["1"]?.brightness)!, alpha: 100)
+            system.currentColour = system.colours["1"]!
         case "2":
                 self.lineColor = Color(hue: (system.colours["2"]?.hue)!, saturation: (system.colours["2"]?.saturation)!, brightness: (system.colours["2"]?.brightness)!, alpha: 100)
+            system.currentColour = system.colours["2"]!
         case "3":
                 self.lineColor = Color(hue: (system.colours["3"]?.hue)!, saturation: (system.colours["3"]?.saturation)!, brightness: (system.colours["3"]?.brightness)!, alpha: 100)
+            system.currentColour = system.colours["3"]!
         default:
             break
         }
