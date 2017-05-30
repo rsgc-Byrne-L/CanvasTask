@@ -102,6 +102,7 @@ public class EnhancedCanvas : Canvas {
             system.x = system.systemStack[system.systemStack.count - 1].systemX
             system.y = system.systemStack[system.systemStack.count - 1].systemY
             system.currentAngle = system.systemStack[system.systemStack.count - 1].systemAngle
+            system.systemStack.removeFirst()
 
             // End branch
         case "1":
