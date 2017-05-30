@@ -29,9 +29,9 @@ class Sketch : NSObject {
         
         // Set up a Koch snowflake
         kochSnowflake = LindenmayerSystem(angle: 15,
-                                          axiom: "X-X+X-X",
+                                          axiom: "+F-F+F-F+F-F",
                                           generations: 3,
-                                          rules: ["X" : ["F"]])
+                                          rules: ["F" : ["F[+F]F[-F]"]])
         
         // Visualize this as a small snowflake
         smallKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
@@ -48,7 +48,7 @@ class Sketch : NSObject {
                                                           reduction: 3,
                                                           x: 150,
                                                           y: 175,
-                                                          direction: 90,
+                                                          direction: 0,
                                                           // DARK GREEN: hue: 100, saturation: 100, brightness: 80
                                                           colours: ["1": Colour(hue: 100, saturation: 100, brightness: 80), "2": Colour(hue: 45, saturation: 100, brightness: 50), "3": Colour(hue: 120, saturation: 80, brightness: 90)])
         // The frame rate can be adjusted; the default is 60 fps

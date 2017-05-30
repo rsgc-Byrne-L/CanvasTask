@@ -95,10 +95,14 @@ public class EnhancedCanvas : Canvas {
             // Stochastic
             system.stochastic = true
         case "[":
-            // Start branch
-            system.branch = 1
+            // Start branch (save state)
+            system.systemStack.append(VisualizedLindenmayerSystem.StateOfSystem(systemX: system.x, systemY: system.y,systemAngle: system.currentAngle))
         case "]":
-            system.branch = 2
+            // End branch (restore state)
+            system.x = system.systemStack[system.systemStack.count - 1].systemX
+            system.y = system.systemStack[system.systemStack.count - 1].systemY
+            system.currentAngle = system.systemStack[system.systemStack.count - 1].systemAngle
+
             // End branch
         case "1":
             self.lineColor = Color(hue: (system.colours["1"]?.hue)!, saturation: (system.colours["1"]?.saturation)!, brightness: (system.colours["1"]?.brightness)!, alpha: 100)
